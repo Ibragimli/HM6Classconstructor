@@ -29,6 +29,12 @@ namespace HM6_Class_constructor
                     double Price = getInputDouble("Price", 0);
                     int Count = getInputInt("Count", 0);
 
+                    int No2;
+                    string Name2;
+                    string Genre2;
+                    double Price2;
+                    int Count2;
+                    //esas
 
                     if (check)
                     {
@@ -39,8 +45,21 @@ namespace HM6_Class_constructor
                             {
                                 if (library.Books[b].No == No)
                                 {
-                                    cheks = true;
-                                    break;
+                                    Console.WriteLine("bele bir kitab var,Siyahida olmayan No-deyerli kitab elave edin!");
+                                    No2 = getInputInt("No", 0);
+                                    Name2 = getInputStr("Name", 1, 50);
+                                    Genre2 = getInputStr("Genre", 3, 20);
+                                    Price2 = getInputDouble("Price", 0);
+                                    Count2 = getInputInt("Count", 0);
+
+                                    No = No2;
+                                    Name = Name2;
+                                    Genre = Genre2;
+                                    Price = Price2;
+                                    Count = Count2;
+                                    cheks = false;
+                                    b = b - 1;
+                                    continue;
                                 }
                                 else
                                 {
