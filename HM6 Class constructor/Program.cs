@@ -6,11 +6,25 @@ namespace HM6_Class_constructor
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Daxil edilecek kitablarin ümumi sayini qeyd edin:");
-            string countint = Console.ReadLine();
-            int counts = Convert.ToInt32(countint);
+            string countint;
+            int counts;
+            bool bookcheck = false;
             Library library = new Library();
             library.Books = new Book[0];
+            do
+            {
+                if (bookcheck)
+                {
+                    Console.WriteLine("------------------------");
+                    Console.WriteLine("Serti düzgün oxuyun!!!!");
+                    Console.WriteLine("------------------------");
+
+                }
+                Console.WriteLine("Daxil edilecek kitablarin ümumi sayini qeyd edin:");
+                countint = Console.ReadLine();
+                counts = Convert.ToInt32(countint);
+                bookcheck = true;
+            } while (counts <= 0);
 
             if (counts > 0)
             {
@@ -34,7 +48,6 @@ namespace HM6_Class_constructor
                     string Genre2;
                     double Price2;
                     int Count2;
-                    //esas
 
                     if (check)
                     {
@@ -45,7 +58,10 @@ namespace HM6_Class_constructor
                             {
                                 if (library.Books[b].No == No)
                                 {
-                                    Console.WriteLine("bele bir kitab var,Siyahida olmayan No-deyerli kitab elave edin!");
+                                    Console.WriteLine("------------------------------------------------");
+                                    Console.WriteLine($"No-{No} deyerinde bir kitab siyahida var");
+                                    Console.WriteLine("Zehmet olmasa siyahida olmayan No-deyerli kitab elave edin!");
+                                    Console.WriteLine("------------------------------------------------");
                                     No2 = getInputInt("No", 0);
                                     Name2 = getInputStr("Name", 1, 50);
                                     Genre2 = getInputStr("Genre", 3, 20);
@@ -153,7 +169,7 @@ namespace HM6_Class_constructor
                     Console.WriteLine("--------Qiymet intervalina gore kitablar---------");
                     foreach (var books in filterBookPrice)
                     {
-                       
+
                         Console.WriteLine("-------------------------------------------------");
                         Console.WriteLine($"No-{books.No} Name-{books.Name} Genre-{books.Genre} Price-{books.Price} Count-{books.Count}");
                         Console.WriteLine("-------------------------------------------------");
