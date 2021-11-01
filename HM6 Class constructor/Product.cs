@@ -6,12 +6,11 @@ namespace HM6_Class_constructor
 {
     class Product
     {
-        public Product(int no, string name, double price, int count)
+        public Product(int no, string name, double price)
         {
             this.No = no;
             this.Name = name;
             this.Price = price;
-            this.Count = count;
         }
 
         public int No;

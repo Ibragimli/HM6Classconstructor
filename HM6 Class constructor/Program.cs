@@ -37,17 +37,17 @@ namespace HM6_Class_constructor
                     Console.WriteLine("================================================");
 
 
-                    int No = getInputInt("No", 0);
-                    string Name = getInputStr("Name", 1, 50);
-                    string Genre = getInputStr("Genre", 3, 20);
-                    double Price = getInputDouble("Price", 0);
-                    int Count = getInputInt("Count", 0);
+                    int no = getInputInt("No", 0);
+                    string name = getInputStr("Name", 1, 50);
+                    string genre = getInputStr("Genre", 3, 20);
+                    double price = getInputDouble("Price", 0);
+                    int count = getInputInt("Count", 0);
 
-                    int No2;
-                    string Name2;
-                    string Genre2;
-                    double Price2;
-                    int Count2;
+                    int no2;
+                    string name2;
+                    string genre2;
+                    double price2;
+                    int count2;
 
                     if (check)
                     {
@@ -56,23 +56,23 @@ namespace HM6_Class_constructor
                         {
                             for (int b = 0; b < library.Books.Length; b++)
                             {
-                                if (library.Books[b].No == No)
+                                if (library.Books[b].No == no)
                                 {
                                     Console.WriteLine("------------------------------------------------");
-                                    Console.WriteLine($"No-{No} deyerinde bir kitab siyahida var");
+                                    Console.WriteLine($"No-{no} deyerinde bir kitab siyahida var");
                                     Console.WriteLine("Zehmet olmasa siyahida olmayan No-deyerli kitab elave edin!");
                                     Console.WriteLine("------------------------------------------------");
-                                    No2 = getInputInt("No", 0);
-                                    Name2 = getInputStr("Name", 1, 50);
-                                    Genre2 = getInputStr("Genre", 3, 20);
-                                    Price2 = getInputDouble("Price", 0);
-                                    Count2 = getInputInt("Count", 0);
+                                    no2 = getInputInt("No", 0);
+                                    name2 = getInputStr("Name", 1, 50);
+                                    genre2 = getInputStr("Genre", 3, 20);
+                                    price2 = getInputDouble("Price", 0);
+                                    count2 = getInputInt("Count", 0);
 
-                                    No = No2;
-                                    Name = Name2;
-                                    Genre = Genre2;
-                                    Price = Price2;
-                                    Count = Count2;
+                                    no = no2;
+                                    name = name2;
+                                    genre = genre2;
+                                    price = price2;
+                                    count = count2;
                                     cheks = false;
                                     b = b - 1;
                                     continue;
@@ -85,7 +85,10 @@ namespace HM6_Class_constructor
 
                             if (cheks == false)
                             {
-                                Book book = new Book(Genre, No, Name, Price, Count);
+                                Book book = new Book(genre, no, name, price)
+                                {
+                                    Count = count
+                                };
                                 library.addBook(book);
                                 break;
                             }
@@ -93,7 +96,10 @@ namespace HM6_Class_constructor
                     }
                     else
                     {
-                        Book book = new Book(Genre, No, Name, Price, Count);
+                        Book book = new Book(genre, no, name, price)
+                        {
+                            Count = count
+                        };
                         library.addBook(book);
                         check = true;
 
@@ -169,11 +175,9 @@ namespace HM6_Class_constructor
                     Console.WriteLine("--------Qiymet intervalina gore kitablar---------");
                     foreach (var books in filterBookPrice)
                     {
-
                         Console.WriteLine("-------------------------------------------------");
                         Console.WriteLine($"No-{books.No} Name-{books.Name} Genre-{books.Genre} Price-{books.Price} Count-{books.Count}");
                         Console.WriteLine("-------------------------------------------------");
-
                     }
 
                 }

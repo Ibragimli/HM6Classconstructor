@@ -6,12 +6,12 @@ namespace HM6_Class_constructor
 {
     class Book : Product
     {
-        public Book(string genre, int no, string name, double price, int count) : base(no, name, price, count)
+        public Book(string genre, int no, string name, double price) : base(no, name, price)
         {
             this.Genre = genre;
         }
 
-
+        
         public string Genre;
 
         public string getInfo()
